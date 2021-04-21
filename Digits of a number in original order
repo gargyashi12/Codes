@@ -1,0 +1,16 @@
+#include <stdio.h>
+int main()
+{
+	int n,d,a[10],i=0,j;
+	scanf("%d",&n);
+	printf("Digits are:\n");
+	while(n!=0)
+	{
+		d=n%10;
+		a[i]=d;
+		i++;
+		n=n/10;
+	}	
+	for(j=i-1;j>-1;j--)
+	printf("%d\n",a[j]);
+}
