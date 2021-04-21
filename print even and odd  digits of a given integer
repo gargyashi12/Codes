@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main()
+{
+	int n,i,j=0,k=0,d,e[20],o[20];
+	scanf("%d",&n);
+	while(n!=0)
+	{
+		d=n%10;
+		if(d%2==0)
+		e[j++]=d;
+		else
+		o[k++]=d;
+		n=n/10;
+	}
+	printf("Even digits are:\n");
+	for(i=0;i<=j-1;i++)
+	printf("%d\n",e[i]);
+	printf("Odd digits are:\n");
+	for(i=0;i<=k-1;i++)
+	printf("%d\n",o[i]);
+}
