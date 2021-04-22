@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n,c=0;
+    scanf("%d",&n);
+    for(int i=1;i*i<=n;i++)
+    {
+        if(i*(i+1)==n)
+        {
+            c=1;
+            break;
+        }
+    }
+    if(c==1)
+        printf("%d is a pronic number\n",n);
+    else
+        printf("%d is not a pronic number\n",n);
+}
