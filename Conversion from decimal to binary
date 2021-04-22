@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+int main()
+{
+    int n,c=0,d,sum=0;
+    scanf("%d",&n);
+    while(n)
+    {
+        d=n%2;
+        sum=sum+d*pow(10,c++);
+        n=n/2;
+    }
+    printf("%d",sum);
+}
