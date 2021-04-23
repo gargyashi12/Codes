@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n,key,first,last,f=0,f1=0;
+    scanf("%d",&n);
+    int a[n];
+    for(int i=0;i<n;i++)
+         scanf("%d",&a[i]);
+    scanf("%d",&key);
+    for(int i=0;i<n;i++)
+    {
+        if(a[i]==key)
+        {
+            f=1;
+            last=i;
+        }
+        if(f1!=1 && a[i]==key)
+        {
+            first=i;
+            f1=1;
+        }
+    }
+    if(f==1)
+    {
+       printf("Search successful\n");
+       printf("First Occurrence : %d\n",first+1);
+       printf("Last Occurrence : %d\n",last+1);
+    }
+    else
+        printf("Search unsuccessful\n");
+}
