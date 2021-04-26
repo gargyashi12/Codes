@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main()
+{
+    char s[30];
+    printf("Enter a string\n");
+    gets(s);
+    printf("The words in the string are:\n");
+    for(int i=0;i<strlen(s);i++)
+    {
+        printf("%c\n",s[i]);
+       /* if(s[i]==' ')
+        printf("\n");
+        else
+        printf("%c",s[i]);*/
+    }
+}
