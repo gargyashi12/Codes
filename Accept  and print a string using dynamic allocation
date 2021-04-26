@@ -1,0 +1,13 @@
+#include <stdio.h>
+void display(char *s)
+{
+    printf("Enter a string\n");
+    s=(char *)malloc(sizeof(char)*30);
+    gets(s);
+    printf("%s",s);
+}
+int main()
+{
+    char *s;
+    display(s);
+}
