@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct book
+{
+    char title[10];
+    char author[10];
+    float price;
+    int no_pages;
+};
+typedef struct book book;
+int main()
+{
+    int n;
+    printf("Enter value of n: ");
+    scanf("%d",&n);
+    book a[n];
+    printf("Enter n book details\n");
+    for(int i=0;i<n;i++)
+       scanf("%s%s%f%d",a[i].title,a[i].author,&a[i].price,&a[i].no_pages);
+    int c=1;
+    while(c)
+    {
+    printf("Enter title of the book whose price is to be updated\n");
+    char t[10];
+    scanf("%s",t);
+    printf("Enter the price\n");
+    float p;
+    int flag=0;
+    scanf("%f",&p);
+    for(int i=0;i<n;i++)
+    {
+        if(strcmp(a[i].title,t)==0)
+        {
+            flag=1;
+            a[i].price=p;
+            break;
+        }
+    }
+    if(flag==0)
+    printf("Updation failed");
+    else
+    printf("Updated successfully");
+    printf("\nDo you wish to continue?\nPress 0 if NO 1 if Yes\n");
+    scanf("%d",&c);
+    }
+    return 0;
+}
