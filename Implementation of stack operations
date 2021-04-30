@@ -1,0 +1,56 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define mx_size 8
+int a[mx_size],top=-1;
+void push()
+{
+    int ele;
+    cout<<"Enter element to be inserted\n";
+    cin>>ele;
+    if(top==mx_size-1)
+    {
+        cout<<"Stack overflow\n";
+        return;
+    }
+    a[++top]=ele;
+}
+void pop()
+{
+    if(top==-1)
+    {
+        cout<<"No element to be deleted\n";
+        return;
+    }
+    cout<<"Deleted element is "<<a[top--]<<endl;
+}
+void display()
+{
+    if(top==-1)
+    {
+        cout<<"Stack underflow\n";
+        return;
+    }
+    for(int i=0;i<=top;i++)
+    cout<<a[i]<<"\t";
+    cout<<"\n";
+}
+int main()
+{
+    int ch;
+    while(1)
+    {
+        cout<<"Press\n1 Push\n2 Pop\n3 Display\n4 Exit\n";
+        cin>>ch;
+        switch(ch)
+        {
+            case 1:push();
+            break;
+            case 2:pop();
+            break;
+            case 3: display();
+            break;
+            case 4:exit(0);
+            default:cout<<"Invalid choice\n";
+        }
+    }
+}
