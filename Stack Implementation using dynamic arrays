@@ -1,0 +1,62 @@
+#include <bits/stdc++.h>
+using namespace std;
+int n=5;
+void dble(int *a)
+{
+    a=(int *)malloc(sizeof(int)*2*n);
+    n=2*n;
+    cout<<"Size of stack is doubled\n";
+}
+void push(int *a,int *top)
+{
+    int ele;
+    cout<<"Enter element to be inserted\n";
+    cin>>ele;
+    if(*top==n-1)
+    dble(a);
+    a[++ *top]=ele;
+    cout<<"Element inserted successfully\n";
+}
+void pop(int *a,int *top)
+{
+    if(*top==-1)
+    {
+        cout<<"No element to be deleted\n";
+        return;
+    }
+    cout<<"Deleted element is "<<a[*top]<<endl;
+    *top=*top-1;
+}
+void display(int *a,int top)
+{
+    if(top==-1)
+    {
+        cout<<"Stack underflow\n";
+        return;
+    }
+    for(int i=0;i<=top;i++)
+    cout<<a[i]<<"\t";
+    cout<<"\n";
+}
+int main()
+{
+    int *a,top=-1;
+    a=(int *)malloc(sizeof(int)*n);
+    int ch;
+    while(1)
+    {
+        cout<<"Press\n1 Push\n2 Pop\n3 Display\n4 Exit\n";
+        cin>>ch;
+        switch(ch)
+        {
+            case 1:push(a,&top);
+            break;
+            case 2:pop(a,&top);
+            break;
+            case 3: display(a,top);
+            break;
+            case 4:exit(0);
+            default:cout<<"Invalid choice\n";
+        }
+    }
+}
