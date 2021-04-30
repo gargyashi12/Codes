@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cout<<"Enter value of n ";
+    cin>>n;
+    int a[n],mx=0,maxi;
+    for(int i=0;i<n;i++)
+    {
+        cin>>a[i];
+        if(mx<a[i])
+        {
+            mx=a[i];
+            maxi=i;
+        }
+    }
+    cout<<"Largest element is "<<mx<<endl;
+    cout<<"Elements before largest\n";
+    for(int i=0;i<maxi;i++)
+    cout<<a[i]<<"\t";
+    cout<<"\nElements after largest\n";
+    for(int i=maxi+1;i<n;i++)
+    cout<<a[i]<<"\t";
+}
