@@ -1,0 +1,51 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define size 5
+int a[size],front=-1,rear=0;
+void ins()
+{
+    if(rear==size)
+    {
+        cout<<"Queue full\n";
+        return;
+    }
+    int ele;
+    cout<<"Enter element to be inserted\n";
+    cin>>ele;
+    a[rear++]=ele;
+}
+void del()
+{
+    if(front==rear)
+    {
+        cout<<"Queue empty\n";
+        return;
+    }
+    cout<<"Deleted elememt is "<<a[++front]<<endl;
+}
+void display()
+{
+    for(int i=front+1;i<rear;i++)
+    cout<<a[i]<<"\t";
+    cout<<"\n";
+}
+int main()
+{
+    int ch;
+    while(1)
+    {
+        cout<<"Press\n1 Insert\n2 Delete\n3 Display\n4 Exit\n";
+        cin>>ch;
+        switch(ch)
+        {
+            case 1:ins();
+            break;
+            case 2:del();
+            break;
+            case 3: display();
+            break;
+            case 4:exit(0);
+            default:cout<<"Invalid choice\n";
+        }
+    }
+}
