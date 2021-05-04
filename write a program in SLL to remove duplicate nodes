@@ -1,0 +1,74 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+struct node 
+{ 
+	int empid;
+	struct node *next; 
+}*first=NULL;
+
+void insert()
+{
+    node* temp=(node*)malloc(sizeof(node));
+    cin>>temp->empid;
+    temp->next=NULL;
+    if(first==NULL)
+    {
+       first=temp;
+        return;
+    }
+    if(first->empid>temp->empid)
+    {
+        temp->next=first;
+        first=temp;
+        return;
+    }
+    if(first->next==NULL)
+    {
+        first->next=temp;
+        return;
+    }
+    node* temp1=first;
+    node* prev;
+    int flag=0;
+    while(temp1->next!=NULL)
+    {
+        prev=temp1;
+        temp1=temp1->next;
+        if(temp1->empid>temp->empid)
+        {
+            flag=1;
+            prev->next=temp;
+            temp->next=temp1;
+            break;
+        }
+    }
+    if(flag!=1)
+        temp1->next=temp;
+}
+
+void display()
+{
+    node* temp=first;
+    while(temp!=NULL)
+    {
+        cout<<temp->empid<<" ";
+        temp=temp->next;
+    }
+}
+
+int main()
+{
+   int m,n;
+   cout<<"Enter number of elements to be inserted in first list\n";
+   cin>>m;
+    cout<<"Enter elements to be inserted\n";
+   for(int i=0;i<m;i++)
+   insert();
+   cout<<"Enter number of elements to be inserted in second list\n";
+   cin>>n;
+    cout<<"Enter element to be inserted\n";
+   for(int i=0;i<n;i++)
+   insert();
+   display();
+}
