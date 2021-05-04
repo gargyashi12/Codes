@@ -1,0 +1,65 @@
+#include <bits/stdc++.h>
+using namespace std;
+struct node
+{
+	char name[20];
+	struct node *link;
+}*first=NULL;
+void insert()
+{
+    node* temp=(node*)malloc(sizeof(node));
+    cin>>temp->name;
+    temp->link=NULL;
+    if(first==NULL)
+    {
+        first=temp;
+        return;
+    }
+    if(strcmp(first->name,temp->name)>0)
+    {
+        temp->link=first;
+        first=temp;
+        return;
+    }
+    if(first->link==NULL)
+    {
+        first->link=temp;
+        return;
+    }
+    node* temp1=first;
+    node* prev;
+    int flag=0;
+    while(temp1->link!=NULL)
+    {
+        prev=temp1;
+        temp1=temp1->link;
+        if(strcmp(temp->name,temp1->name)<0)
+        {
+            flag=1;
+            prev->link=temp;
+            temp->link=temp1;
+            break;
+        }
+    }
+    if(flag!=1)
+    temp1->link=temp;
+}
+void display()
+{
+    node* temp=first;
+    while(temp!=NULL)
+    {
+        cout<<temp->name<<"\n";
+        temp=temp->link;
+    }
+}
+int main()
+{
+    int n;
+    cout<<"Enter number of names to be inserted\n";
+    cin>>n;
+    cout<<"Enter names\n";
+    for(int i=0;i<n;i++)
+    insert();
+    display();
+}
