@@ -1,0 +1,61 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int v[50]={0};
+
+struct node
+{
+    int ele;
+    struct node* next;
+}*first=NULL;
+
+void insrt()
+{
+    int el;
+    node* temp=(node*)malloc(sizeof(node));
+    cout<<"Enter element to be inserted\n";
+    cin>>el;
+    temp->ele=el;
+    temp->next=NULL;
+    v[el]=v[el]+1;
+    if(v[el]==1)
+    {
+        if(first==NULL)
+        {
+            first=temp;
+            return;
+        }
+        node* t=first;
+        while(t->next!=NULL)
+        t=t->next;
+        t->next=temp;
+    }
+}
+
+void display()
+{
+    node* temp=first;
+    while(temp!=NULL)
+    {
+        cout<<temp->ele<<" ";
+        temp=temp->next;
+    }
+}
+
+int main()
+{
+    int ch;
+    while(1)
+    {
+        cout<<"Press\n1 Insert\n2 Display\n3 Exit\n";
+        cin>>ch;
+        switch(ch)
+        {
+            case 1:insrt();
+            break;
+            case 2:display();
+            break;
+            case 3:exit(0);
+        }
+    }
+}
